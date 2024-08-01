@@ -1,0 +1,69 @@
+Movie Review Finder
+Overview
+
+The Movie Review Finder application is a simple Tkinter-based GUI tool that allows users to search for movies and view their details, including reviews and posters. It uses the OMDb API to fetch movie data and displays it in a user-friendly interface.
+Features
+
+    Auto-complete Search: As you type the movie name, suggestions will appear to help you quickly find the movie you're interested in.
+    Movie Details: Display movie title, year, genre, director, plot, and ratings.
+    Poster Display: Show the movie poster if available.
+
+Dependencies
+
+    Python 3.x: Ensure you have Python 3 installed.
+    Tkinter: Python's standard GUI package.
+    Pillow: For image handling (PIL).
+    Requests: For making HTTP requests.
+
+You can install the required packages using pip:
+
+bash
+
+pip install pillow requests
+
+Code Explanation
+1. AutoCompleteEntry Class
+
+    Purpose: A custom tk.Entry widget that provides auto-complete functionality.
+    Constructor: Takes the parent widget and OMDb API key.
+    Methods:
+        _on_key_release(event): Triggered on key release to fetch suggestions.
+        _fetch_suggestions(text): Fetches movie suggestions from the OMDb API.
+        _display_suggestions(suggestions): Displays the suggestions in a list box.
+        _on_listbox_select(event): Handles selection from the list box.
+        _on_listbox_keypress(event): Handles key presses in the list box for navigation.
+
+2. get_movie_reviews Function
+
+    Purpose: Fetches movie details and poster from the OMDb API based on the provided movie title.
+    Parameters:
+        api_key: OMDb API key.
+        movie_title: Title of the movie to search.
+        label: Tkinter label widget to display movie details.
+        poster_label: Tkinter label widget to display the movie poster.
+    Process:
+        Makes an API request for the movie details.
+        Parses and displays the movie's title, year, genre, director, plot, and ratings.
+        Fetches and displays the movie poster.
+
+3. create Function
+
+    Purpose: Initializes and runs the Tkinter GUI application.
+    Process:
+        Sets up the main application window and frames.
+        Creates and packs the various widgets including labels, entry fields, buttons, and image display areas.
+        Associates the button click with the get_movie_reviews function to fetch and display movie details based on the user’s input.
+
+How to Run
+
+    Save the code in a file named movie_review_finder.py.
+
+    Replace '86d6a552' with your own OMDb API key in the create function.
+
+    Run the script:
+
+    bash
+
+python movie_review_finder.py
+
+The GUI will appear, allowing you to enter a movie name, see suggestions, and view movie details and posters.
